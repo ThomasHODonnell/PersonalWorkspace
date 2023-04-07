@@ -16,15 +16,14 @@ import CreateToDoEntry from './otherPages/create/createToDo';
 import CreateShortcutEntry from './otherPages/create/createShortcut';
 import CreateTabEntry from './otherPages/create/createTab';
 import DeleteEntry from './otherPages/delete/delete';
+import useLogin from './hooks/useLogin';
+
+const loggedIn = useLogin();
 
 const router = createBrowserRouter ([
     {
         path: "/", 
-        element: <App />, 
-    },
-    {
-        path: "login", 
-        element: <Login />, 
+        element: loggedIn ? ( <App /> ) : ( <Login />), 
     },
     {
         path: "create", 

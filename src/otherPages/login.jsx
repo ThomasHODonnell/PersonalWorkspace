@@ -10,7 +10,7 @@ import {useState, useEffect} from 'react';
 import App from '../App';
 import NameTimeDate from '../components/nameTimeDate';
 import GetName from '../components/getName';
-
+import useLogin from '../hooks/useLogin';
 
 
 
@@ -34,6 +34,7 @@ const Login = () => {
     }, [] )
 
     const handleSubmitLogin = async () => {
+      
         const name = {
           firstname: loginfirst,
           lastname: loginlast
@@ -50,6 +51,7 @@ const Login = () => {
         const arr = [...next, responsejson]
         console.log('arr', arr)
         setNext(arr)
+        useLogin(true)
       }
 
       const handleChangeFirst = (event) => {
